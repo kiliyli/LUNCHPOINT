@@ -1,0 +1,380 @@
+/* Страница «Собрать ланч» (подключается после style3.css) */
+
+main {
+    max-width: 1100px;
+}
+
+.dishes {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+}
+
+.dish {
+    display: flex;
+    flex-direction: column;
+    padding: 30px 40px;
+    background-color: white;
+    border: 2px solid transparent;
+    border-radius: 35px;
+    cursor: pointer;
+    filter: drop-shadow(17px 19px 24px rgba(0, 0, 0, 0.13));
+}
+
+.dish:hover,
+.dish.dish-selected {
+    border: 2px solid tomato;
+}
+
+.dish img {
+    width: 100%;
+    border-radius: 35px;
+    margin-bottom: 20px;
+}
+
+.dish-price {
+    font-size: 26px;
+    font-weight: 700;
+}
+
+.dish-name {
+    font-size: 22px;
+    line-height: 1.3;
+}
+
+/* вес и кнопка прижаты вниз: выравниваются в ряду при разной длине названий */
+.dish-weight {
+    margin-top: auto;
+    padding-top: 15px;
+    font-size: 16px;
+    color: gray;
+}
+
+.dish-button {
+    margin-top: 15px;
+    padding: 10px 30px;
+    background-color: #f1eee9;
+    border: none;
+    border-radius: 10px;
+    font-family: inherit;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.dish:hover .dish-button {
+    background-color: tomato;
+    color: white;
+}
+
+/* ===== Лаба 5: фильтры ===== */
+.filters {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-bottom: 25px;
+}
+
+.filter-button {
+    padding: 8px 22px;
+    font-family: inherit;
+    font-size: 16px;
+    color: #403530;
+    background-color: white;
+    border: 2px solid #403530;
+    border-radius: 20px;
+    cursor: pointer;
+    transition: color 0.3s, border-color 0.3s, background-color 0.3s;
+}
+
+.filter-button:hover {
+    color: tomato;
+    border-color: tomato;
+}
+
+.filter-button.active {
+    color: white;
+    background-color: tomato;
+    border-color: tomato;
+}
+
+@media (max-width: 800px) {
+    .dishes { grid-template-columns: repeat(2, 1fr); }
+}
+
+@media (max-width: 600px) {
+    section h2 { text-align: center; }
+    .filters { justify-content: center; }
+    .dishes { grid-template-columns: 1fr; }
+}
+
+/* ===== Форма заказа ===== */
+.order {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.order h2 {
+    font-size: 28px;
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.form-columns {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 40px;
+}
+
+.form-block h3 {
+    margin-bottom: 25px;
+    font-size: 20px;
+    font-weight: 400;
+}
+
+.field {
+    margin-bottom: 15px;
+}
+
+.field label,
+.field-title {
+    display: block;
+    margin-bottom: 8px;
+    font-size: 16px;
+    line-height: 1.3;
+}
+
+.field input[type="text"],
+.field input[type="email"],
+.field input[type="tel"],
+.field input[type="time"],
+.field select,
+.field textarea {
+    display: block;
+    width: 240px;
+    max-width: 100%;
+    height: 33px;
+    padding: 0 8px;
+    font-family: inherit;
+    font-size: 14px;
+    color: #403530;
+    background-color: white;
+    border: 1px solid #767676;
+    border-radius: 2px;
+}
+
+.field textarea {
+    height: 95px;
+    padding: 8px;
+    resize: vertical;
+}
+
+.field-check {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    margin-bottom: 10px;
+}
+
+.field-check label {
+    margin-bottom: 0;
+}
+
+.field-check input {
+    margin: 0;
+    accent-color: tomato;
+}
+
+.hint {
+    margin-top: 4px;
+    font-size: 14px;
+    font-style: italic;
+    line-height: 1.4;
+}
+
+.form-buttons {
+    display: flex;
+    gap: 5px;
+    margin-top: 20px;
+}
+
+.form-buttons button {
+    width: 118px;
+    height: 28px;
+    font-family: inherit;
+    font-size: 14px;
+    color: #403530;
+    background-color: white;
+    border: 1px solid #403530;
+    cursor: pointer;
+}
+
+.form-buttons button:hover {
+    color: tomato;
+    border-color: tomato;
+}
+
+@media (max-width: 800px) {
+    .form-columns { grid-template-columns: 1fr; gap: 20px; }
+}
+
+@media (max-width: 600px) {
+    .field input[type="text"],
+    .field input[type="email"],
+    .field input[type="tel"],
+    .field input[type="time"],
+    .field select,
+    .field textarea { width: 100%; }
+}
+
+/* ===== Лаба 4: блок «Ваш заказ» ===== */
+[hidden] {
+    display: none !important;
+}
+
+.order-item {
+    margin-bottom: 15px;
+}
+
+.order-label {
+    display: block;
+    margin-bottom: 4px;
+    font-size: 16px;
+    font-weight: 600;
+}
+
+.order-text {
+    font-size: 16px;
+    line-height: 1.4;
+}
+/* ===== Лаба 6: варианты ланчей ===== */
+/* 6 колонок: каждая карточка занимает 2, значит 3 в ряд;
+   4-я и 5-я сдвинуты к центру */
+.lunch-grid {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    gap: 16px;
+    margin-bottom: 20px;
+}
+
+.lunch-card { grid-column: span 2; }
+.lunch-card:nth-child(4) { grid-column: 2 / span 2; }
+.lunch-card:nth-child(5) { grid-column: 4 / span 2; }
+
+/* карточка варианта: блюда в ряд, заголовок и десерт на всю ширину */
+.lunch-card {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 14px 10px;
+    padding: 16px;
+    background-color: white;
+    border-radius: 20px;
+    filter: drop-shadow(0 6px 12px rgba(0, 0, 0, 0.08));
+}
+
+.lunch-card-title {
+    flex-basis: 100%;
+    font-size: 16px;
+    font-weight: 700;
+    text-align: center;
+    color: tomato;
+}
+
+.lunch-item {
+    display: flex;
+    flex-direction: column;   /* главная ось — сверху вниз */
+    align-items: center;
+    gap: 4px;
+    width: 70px;
+}
+
+.lunch-item-img {
+    width: 64px;
+    height: 64px;
+    object-fit: cover;
+    border-radius: 50%;
+    border: 2px solid #f3e2d0;
+    margin-bottom: 0;
+    transition: transform 0.3s ease;
+    cursor: pointer;
+}
+
+/* transform при наведении */
+.lunch-item-img:hover {
+    transform: translateY(-4px) scale(1.1);
+}
+
+.lunch-item-caption {
+    font-size: 13px;
+    line-height: 1.2;
+    text-align: center;
+    color: #403530;
+}
+
+.lunch-desserts-note {
+    font-size: 14px;
+    color: gray;
+}
+
+@media (max-width: 800px) {
+    .lunch-grid { grid-template-columns: repeat(2, 1fr); }
+    .lunch-card,
+    .lunch-card:nth-child(4),
+    .lunch-card:nth-child(5) { grid-column: auto; }
+}
+
+@media (max-width: 600px) {
+    .lunch-grid { grid-template-columns: 1fr; }
+}
+
+/* ===== Лаба 6: уведомление ===== */
+.notification-overlay {
+    position: fixed;          /* не двигается при прокрутке */
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;            /* центрирование по вертикали и горизонтали */
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(0, 0, 0, 0.4);
+    z-index: 1000;            /* поверх остальных элементов */
+}
+
+.notification {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+    max-width: 400px;
+    margin: 0 20px;
+    padding: 30px 40px;
+    background-color: white;
+    border: 2px solid tomato;
+    border-radius: 25px;
+    text-align: center;
+}
+
+.notification-text {
+    font-size: 20px;
+    font-weight: 600;
+}
+
+.notification-button {
+    padding: 10px 40px;
+    font-family: inherit;
+    font-size: 16px;
+    color: white;
+    background-color: tomato;
+    border: 2px solid tomato;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: color 0.3s, background-color 0.3s;
+}
+
+.notification-button:hover {
+    color: tomato;
+    background-color: white;
+}

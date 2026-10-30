@@ -1,0 +1,161 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Montserrat', sans-serif;
+    color: #403530;
+    line-height: 1.6;
+    background-color: #fff8ef;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh; 
+}
+
+header {
+    padding: 30px 20px; 
+    margin-bottom: 40px;
+    text-align: center; 
+    background-color: #f3e2d0;
+}
+
+header h1 {
+    font-size: 52px;       
+    font-weight: 800;      
+    color: #403530;
+    margin-bottom: 25px;   
+    line-height: 1.1;     
+    letter-spacing: 2px;   
+}
+
+nav {
+    display: flex;
+    justify-content: center;
+    gap: 15px;             
+    flex-wrap: wrap;       
+}
+
+nav a {
+    text-decoration: none;
+    font-size: 16px;
+    font-weight: 600;
+    color: #403530;
+    transition: color 0.3s;
+}
+
+nav a:hover,
+nav a#active {
+    color: tomato;  
+}
+
+main {
+    flex: 1;
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+section {
+    margin-bottom: 60px;
+}
+
+h2 {
+    font-size: 20px;
+    font-weight: 700; 
+    margin-bottom: 20px;
+    color: tomato;
+    text-align: left;
+}
+
+#about h2 {
+    font-size: 32px;
+}
+
+img {
+    width: 100%;
+    height: auto;
+    border-radius: 12px;
+    margin-bottom: 25px;
+    display: block;
+}
+
+p {
+    font-size: 20px;
+    line-height: 1.7;
+    color: #403530;
+}
+
+ul {
+    list-style: disc; 
+    padding-left: 20px;
+}
+
+ul li {
+    margin-bottom: 10px;
+    position: relative;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 15px;
+    background-color: #f3e2d0;
+    border-radius: 12px;   
+    overflow: hidden; 
+}
+
+thead th {
+    text-align: left;
+    padding: 20px;
+    border-bottom: 1.2px solid #403530;
+    color: #403530;
+}
+
+tbody td {
+    padding: 15px;
+    border-bottom: 1px solid #403530;
+    color: #403530;
+}
+
+footer {
+    background-color: #f3e2d0;
+    color: #403530;
+    padding: 30px;
+    margin-top: 50px;
+}
+
+footer a {
+    color: #403530;
+    text-decoration: none;
+}
+
+footer a:hover {
+    color: #403530;
+}
+
+.about-block {
+    display: flex;
+    gap: 30px;
+    align-items: center;
+}
+
+@media (max-width: 800px) {
+    nav { justify-content: space-between; }
+    .about-block { flex-direction: column; }
+    .about-photo img { width: 500px; max-width: 100%; }
+    table { font-size: 13px; }
+}
+
+@media (max-width: 600px) {
+    header h1 { text-align: center; }
+    nav { flex-direction: column; align-items: center; }
+    nav a { font-size: 20px; }
+    .about-photo img { width: 100%; }
+}
+
+@media (max-width: 400px) {
+    table { font-size: 11px; }
+    thead th, tbody td { padding: 8px; }
+}
