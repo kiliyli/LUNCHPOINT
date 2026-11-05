@@ -52,4 +52,17 @@ function renderDishes() {
     });
 }
 
-renderDishes();
+// Если блюда не загрузились, пишем об этом в каждом блоке
+function showLoadError(error) {
+    console.error(error);
+    categoryList.forEach(function (category) {
+        const container = document.getElementById(category + '-dishes');
+        const message = document.createElement('p');
+        message.className = 'load-error';
+        message.textContent = 'Не удалось загрузить блюда (' + error.message + '). Обновите страницу.';
+        container.replaceChildren(message);
+    });
+}
+
+// Запрос к API, затем вывод блюд на страницу
+loadDishes().then(renderDishes).catch(showLoadError);

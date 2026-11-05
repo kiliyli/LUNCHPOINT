@@ -378,3 +378,10 @@ main {
     color: tomato;
     background-color: white;
 }
+
+/* ===== Лаба 7: ошибка загрузки блюд ===== */
+.load-error {
+    grid-column: 1 / -1;
+    font-size: 16px;
+    color: tomato;
+}
